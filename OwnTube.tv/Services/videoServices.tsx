@@ -29,16 +29,13 @@ class VideoService {
   }
 
   // Public method to get video category labels
-  public getVideoCategoryLabels(): CategoryLabel[] {
-    if (this.categories.length === 0) {
-      this.categories = this.extractCategoryLabels();
-    }
-    return this.categories;
+  public getVideoCategoryLabels(): string[] {
+    return ["Gaming", "Entertainment", "Unknown", "Art", "Education"];
   }
 
   // Public method to get videos for a specific category
-  public getVideosForCategory(categoryLabel: CategoryLabel): Video[] {
-    return this.videos.filter(video => video.category.id === categoryLabel.id);
+  public getVideosForCategory(label: string): any[] {
+    return testData.data.filter(video => video.category.label === label);
   }
 
   // New method to load videos from a local JSON file
